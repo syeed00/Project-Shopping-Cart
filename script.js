@@ -55,6 +55,18 @@ function removeFromCart(id) {
     updateCartUI();
 }
 
+function updateQuantity(id, action) {
+    let item = cart.find(item => item.id === id);
+    
+    if (action === "increase") {
+        item.quantity += 1;
+    } else if (action === "decrease" && item.quantity > 1) {
+        item.quantity -= 1;
+    }
+    
+    updateCartUI();
+}
+
 function clearCart() {
     cart = [];
     updateCartUI();
@@ -80,6 +92,8 @@ function updateCartUI() {
             <img src="${item.image}" class="cart-img me-2">
             <span>${item.title} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}</span>
             <button class="btn btn-sm btn-danger" onclick="removeFromCart(${item.id})">Remove</button>
+            <button class="btn btn-sm btn-secondary" onclick="updateQuantity(${item.id}, 'decrease')">-</button>
+            <button class="btn btn-sm btn-secondary" onclick="updateQuantity(${item.id}, 'increase')">+</button>
         `;
 
         cartItems.appendChild(li);
