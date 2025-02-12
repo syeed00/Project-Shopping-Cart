@@ -1,0 +1,37 @@
+body {
+    background-color: #f8f9fa;
+}
+
+h1, h2 {
+    color: #333;
+    font-weight: bold;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+}
+
+.product-img {
+    height: 150px;
+    object-fit: contain;
+}
+
+.cart-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 5px;
+}
